@@ -1,0 +1,154 @@
+@import "_my-styles2.scss";
+/*box veio de outro arquivo scss via importação*/
+
+#my-div {
+    color: red;
+    &:hover {
+        color: green;
+    }
+}
+.container{
+    width: 100px;
+    .title{
+        color: red;
+        margin: {
+            top: 5px;
+            bottom: 10px;
+            right: 20px;
+        }
+    }
+}
+// comentario de linha única some no css
+/*comentario de 
+várias linhas*/
+
+// uso de váriáveis
+$myVar: rgb(24, 24, 224);
+
+.cor{
+    color: $myVar;
+}
+
+// uso de funções
+.a{
+    color: mix(red, blue); //mistura cores por igual
+    color: mix(green, blue, 20%); //mistura cores com % de cada
+    color: darken(green,10%); //escurece uma cor
+
+}
+
+//listas - variáveis q armazenam mais de 1 valor
+$my-list: 35px 15px 80% 41rem;
+$colors: (
+    demo: #225312,
+    paid: #957204,
+);
+
+.a{
+    margin: $my-list;
+    top: nth($my-list, 1); //nth serve para pegar um item dentro do array
+    color: map-get($colors, paid);
+}
+
+//interpolação
+$a:padding;
+.my-class-#{$a}{
+    color: red;
+    #{$a}: 13px;
+}
+
+//if
+$b: 5;
+@if $b > 3{
+    .my-class{
+        color: red;
+    }
+} @else {
+    .my-class{
+        color: blue;
+    }
+}
+
+//for
+@for $i from 1 through 3 {
+    .class-#{$i}{
+        color: yellow;
+    }
+}
+$my-color: "red", "green", "blue";
+@each $color in $my-color{
+    .btn-#{$color}{
+        background-color: $color;
+    }
+}
+
+//while
+$i:0;
+@while $i < 3 {
+    .my-class-#{$i}{
+        padding: 50px;
+    }
+    $i: $i+1;
+}
+
+//funções
+@function double($value){
+    @return $value * 2;
+}
+.my-class{
+    width: double(25px);
+}
+
+//mixin
+@mixin error-box{
+    color: red;
+    background-color: white;
+}
+@mixin error2($border-width: 10px){ //após : usa o valor default
+    border: $border-width solid red;
+}
+@mixin padding-mixin($values...){ //... para não ter restrições de qtd de parametros
+    padding: $values;
+}
+@mixin links{
+    text-decoration: none;
+    color: black;
+    @content;// para funcionar o q está dentro das chaves do include
+}
+
+.my-box{
+    font-size: 18px;
+    padding: 10px;
+    @include error-box;
+    @include error2; //puxa o default
+    @include error2(90px); //puxa o valor informado
+    @include padding-mixin(50px 10px 20px 30px); //pode informar ou não a qtd q quiser de parametros q vai aceitar
+    a{
+        @include links{
+            cursor: pointer;
+            &:hover{
+                color: red;
+            }
+        }
+    }
+}
+
+//extend e placeholder %
+.btn{
+    min-width: 150px;
+    padding: 10px 20px;
+}
+%btn2{ //com o % na classe e após o extend, essa classe não capota para o css final
+    max-width: 300px;
+}
+.btn-confirm{
+    background-color: green;
+    color: white;
+    @extend .btn;
+    @extend %btn2;
+}
+.btn-cancel{
+    background-color: red;
+    color: white;
+    @extend %btn2;
+}

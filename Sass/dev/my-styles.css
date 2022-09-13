@@ -1,0 +1,126 @@
+@charset "UTF-8";
+.box {
+  margin: 0;
+}
+
+/*box veio de outro arquivo scss via importação*/
+#my-div {
+  color: red;
+}
+#my-div:hover {
+  color: green;
+}
+
+.container {
+  width: 100px;
+}
+.container .title {
+  color: red;
+  margin-top: 5px;
+  margin-bottom: 10px;
+  margin-right: 20px;
+}
+
+/*comentario de 
+várias linhas*/
+.cor {
+  color: rgb(24, 24, 224);
+}
+
+.a {
+  color: purple;
+  color: #001acc;
+  color: #004d00;
+}
+
+.a {
+  margin: 35px 15px 80% 41rem;
+  top: 35px;
+  color: #957204;
+}
+
+.my-class-padding {
+  color: red;
+  padding: 13px;
+}
+
+.my-class {
+  color: red;
+}
+
+.class-1 {
+  color: yellow;
+}
+
+.class-2 {
+  color: yellow;
+}
+
+.class-3 {
+  color: yellow;
+}
+
+.btn-red {
+  background-color: "red";
+}
+
+.btn-green {
+  background-color: "green";
+}
+
+.btn-blue {
+  background-color: "blue";
+}
+
+.my-class-0 {
+  padding: 50px;
+}
+
+.my-class-1 {
+  padding: 50px;
+}
+
+.my-class-2 {
+  padding: 50px;
+}
+
+.my-class {
+  width: 50px;
+}
+
+.my-box {
+  font-size: 18px;
+  padding: 10px;
+  color: red;
+  background-color: white;
+  border: 10px solid red;
+  border: 90px solid red;
+  padding: 50px 10px 20px 30px;
+}
+.my-box a {
+  text-decoration: none;
+  color: black;
+  cursor: pointer;
+}
+.my-box a:hover {
+  color: red;
+}
+
+.btn, .btn-confirm {
+  min-width: 150px;
+  padding: 10px 20px;
+}
+
+.btn-cancel, .btn-confirm {
+  max-width: 300px;
+}
+
+.btn-confirm {
+  background-color: green;
+  color: white;
+}
+
+.btn-cancel {
+  background-color: red;
+  color: white;
+}/*# sourceMappingURL=my-styles.css.map */
